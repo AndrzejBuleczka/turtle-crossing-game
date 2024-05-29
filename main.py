@@ -12,7 +12,7 @@ player = Player()
 car_manager = CarManager()
 scoreboard = Scoreboard()
 screen.listen()
-screen.onkey(player.go_up, "Up")
+screen.onkeypress(player.go_up, "Up")
 
 game_is_on = True
 while game_is_on:
@@ -27,7 +27,7 @@ while game_is_on:
             game_is_on = False
             scoreboard.game_over()
 
-    if player.ycor() > 280:
+    if player.is_at_finish_line():
         player.go_to_start()
         car_manager.level_up()
         scoreboard.increase_level()
